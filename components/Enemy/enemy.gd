@@ -1,11 +1,7 @@
 extends CharacterBody2D
 
-func _ready():
-	print("PLAYER")
-	print("Layer: ", collision_layer)
-	print("Mask: ", collision_mask)
 
-func _ready1():
+func _ready():
 	# Düşmanı düşman grubuna ekle
 	add_to_group("enemy")
 	
