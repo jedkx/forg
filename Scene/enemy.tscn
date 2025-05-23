@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=4 uid="uid://c30vy0i6favkt"]
+
+[ext_resource type="Script" uid="uid://brqogjesgucf1" path="res://components/Enemy/enemy.gd" id="1_n6qjc"]
+[ext_resource type="Script" uid="uid://cfqmt3u08sbr6" path="res://components/Enemy/EnemyMoveComponent.gd" id="2_4jekx"]
+[ext_resource type="Script" uid="uid://b0jw03jma1ym1" path="res://components/Enemy/EnemyDamageComponent.gd" id="2_s685e"]
+[ext_resource type="Script" uid="uid://b1skfchj3bo6e" path="res://components/Enemy/EnemyHealthComponent.gd" id="3_s685e"]
+[ext_resource type="Script" uid="uid://b6ft2yudyskxi" path="res://components/Enemy/EnemyAnimationComponent.gd" id="5_vmi60"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_n6qjc"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAADAAAAByAQAAUklGRmoBAABXRUJQVlA4TF0BAAAvP8ALEH+goI0kNXfMDxLexStqIwXaXa4nctCLDOTgREEbSWrumB8kvIsXEBT5P1oAwL3721d/A8AkComQSFwAYEtLXCDxP5+XO30AagDaqpublGGMDhCOpaPKlmQGKsMc6QDsKv8acdV8zz8nJR3RfzZu2wZKD7fSg14Rv+f10GwyYO4ZDm+aDFh7asPh1lqTAW/PuOi3GLD2YFy8ggFrT2t9ghYB3h4Ur2gy4O2ZvKGVAXNP8frWysBLixXeQcCo+7UHGHVZKdsRAGYjIo6A1QTkHbXzvfPrxVJgbu8pCFhdjD/ydE9TdGUouh+pGF1pRfejFdmPofAe7kkrqitH0V1ppayf+ARmQ3fHnWmgdG+c5d5ucbaUAWSAupvbfc6drQYBRxk4PF/6f7qjm6I7+TndyTO606e706e70z/dnT7ZnXG6O/0zerPeY+7uCI+r3m9u9zp3thTxCzsLAA==")
+size_override = Vector2(64, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jekx"]
+size = Vector2(21, 28)
+
+[sub_resource type="Animation" id="Animation_vmi60"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_hti8k"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_44hyy"]
+_data = {
+&"idle": SubResource("Animation_vmi60"),
+&"walk": SubResource("Animation_hti8k")
+}
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_n6qjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3.132)
+texture = SubResource("PortableCompressedTexture2D_n6qjc")
+hframes = 4
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://aseprite/mose.aseprite",
+"source_uid": 7695671565535643792
+}
+metadata/_aseprite_wizard_source_file_hash_ = "7ccc0630553560e78da9c46936f23e20"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_4jekx")
+
+[node name="EnemyMove" type="Node" parent="."]
+script = ExtResource("2_4jekx")
+
+[node name="EnemyDamage" type="Node" parent="."]
+script = ExtResource("2_s685e")
+
+[node name="EnemyHealth" type="Node" parent="."]
+script = ExtResource("3_s685e")
+
+[node name="EnemyAnimation" type="Node" parent="."]
+script = ExtResource("5_vmi60")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_44hyy")
+}

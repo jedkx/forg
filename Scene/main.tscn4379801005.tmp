@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwxf7em01p53k"]
+
+[ext_resource type="PackedScene" uid="uid://c30vy0i6favkt" path="res://Scene/enemy.tscn" id="1_sblpm"]
+[ext_resource type="PackedScene" uid="uid://sgct1vd6oiip" path="res://Scene/armored.tscn" id="2_r34rm"]
+
+[node name="main" type="Node"]
+
+[node name="enemy" parent="." instance=ExtResource("1_sblpm")]
+position = Vector2(582, 309)
+collision_layer = 0
+collision_mask = 2
+
+[node name="armored" parent="." instance=ExtResource("2_r34rm")]
+position = Vector2(363, 309)
+collision_layer = 3
