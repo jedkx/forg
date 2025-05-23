@@ -16,7 +16,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DamageHitbox/CollisionPolygon2D:disabled")
+tracks/0/path = NodePath("DamageHitbox/Attack 1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DamageHitbox/CollisionPolygon2D2:disabled")
+tracks/1/path = NodePath("DamageHitbox/Attack 2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,7 +86,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DamageHitbox/CollisionPolygon2D:disabled")
+tracks/1/path = NodePath("DamageHitbox/Attack 1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -98,7 +98,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("DamageHitbox/CollisionPolygon2D2:disabled")
+tracks/2/path = NodePath("DamageHitbox/Attack 2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -195,11 +195,11 @@ shape = SubResource("RectangleShape2D_b1gpk")
 [node name="DamageHitbox" type="Area2D" parent="."]
 script = ExtResource("6_3sk28")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DamageHitbox"]
+[node name="Attack 1" type="CollisionPolygon2D" parent="DamageHitbox"]
 position = Vector2(-155, 33)
 polygon = PackedVector2Array(126, -44, 102, -28, 102, -16, 264, -14, 265, -43)
 disabled = true
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DamageHitbox"]
+[node name="Attack 2" type="CollisionPolygon2D" parent="DamageHitbox"]
 polygon = PackedVector2Array(23, 16, 114, 17, 114, -31, 86, -60, 23, -56)
 disabled = true
