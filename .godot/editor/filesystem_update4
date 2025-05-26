@@ -1,11 +1,1 @@
 res://Scene/main.tscn
-res://Scene/enemy.tscn
-res://Scene/armored.tscn
-res://components/Player/AnimationComponent.gd
-res://Scene/DamageAreaComponent.gd
-res://components/Player/SwordComponent.gd
-res://components/Player/armored.gd
-res://components/Enemy/enemy.gd
-res://Scene/SwordHitboxComponent.gd
-res://components/Player/MoveComponent.gd
-res://components/Enemy/EnemyAnimationComponent.gd

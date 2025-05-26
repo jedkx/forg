@@ -11,7 +11,7 @@ _data = PackedByteArray("AAADAAUAAAABAAAAQAAAADAAAAByAQAAUklGRmoBAABXRUJQVlA4TF0
 size_override = Vector2(64, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jekx"]
-size = Vector2(21, 28)
+size = Vector2(24, 28)
 
 [sub_resource type="Animation" id="Animation_vmi60"]
 length = 0.4
@@ -51,7 +51,7 @@ _data = {
 &"walk": SubResource("Animation_hti8k")
 }
 
-[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+[node name="EnemyMouse" type="CharacterBody2D" groups=["enemy"]]
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_n6qjc")
@@ -85,7 +85,7 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "7ccc0630553560e78da9c46936f23e20"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 2)
+position = Vector2(3, 2)
 shape = SubResource("RectangleShape2D_4jekx")
 
 [node name="EnemyMove" type="Node" parent="."]

@@ -10,20 +10,16 @@ var is_dead_flag: bool = false
 
 func _ready():
 	current_health = max_health
-	print("Health: Başlangıç sağlığı: ", current_health, "/", max_health)
+	
 
 func take_damage(amount: float) -> void:
 	if is_dead_flag:
-		print("Health: Zaten ölü, hasar uygulanmadı!")
 		return
 		
-	print("Health: Hasar alındı! Miktar: ", amount)
-	print("Health: Önceki sağlık: ", current_health)
 	
 	current_health -= amount
 	current_health = max(0, current_health)  # Sağlığın 0'ın altına düşmesini engelle
 	
-	print("Health: Yeni sağlık: ", current_health)
 	emit_signal("health_changed", current_health)
 	
 	# Görsel hasar efekti
@@ -32,7 +28,6 @@ func take_damage(amount: float) -> void:
 	# Ölüm kontrolü
 	if current_health <= 0 and not is_dead_flag:
 		is_dead_flag = true
-		print("Health: Ölüm gerçekleşti!")
 		emit_signal("died")
 		
 		# Görsel ölüm efekti

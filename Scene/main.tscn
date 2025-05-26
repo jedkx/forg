@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwxf7em01p53k"]
+[gd_scene load_steps=5 format=3 uid="uid://bwxf7em01p53k"]
 
-[ext_resource type="PackedScene" uid="uid://c30vy0i6favkt" path="res://Scene/enemy.tscn" id="1_sblpm"]
-[ext_resource type="PackedScene" uid="uid://sgct1vd6oiip" path="res://Scene/armored.tscn" id="2_r34rm"]
+[ext_resource type="PackedScene" uid="uid://c30vy0i6favkt" path="res://Scene/EnemyMouse.tscn" id="1_sblpm"]
+[ext_resource type="PackedScene" uid="uid://sgct1vd6oiip" path="res://Scene/Player.tscn" id="2_r34rm"]
+[ext_resource type="Script" uid="uid://bjpxxkdjnxn4i" path="res://components/camera_2d.gd" id="3_r34rm"]
+[ext_resource type="Script" uid="uid://bquuodwb0iu41" path="res://components/enemy_mouse_spawner.gd" id="4_2wwxx"]
 
 [node name="main" type="Node"]
 
-[node name="enemy" parent="." instance=ExtResource("1_sblpm")]
-position = Vector2(582, 309)
+[node name="EnemyMouse" parent="." instance=ExtResource("1_sblpm")]
+position = Vector2(676, 177)
 
-[node name="armored" parent="." instance=ExtResource("2_r34rm")]
-position = Vector2(363, 309)
+[node name="Player" parent="." instance=ExtResource("2_r34rm")]
+position = Vector2(258, 113)
 
-[editable path="enemy"]
-[editable path="armored"]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(365, 309)
+script = ExtResource("3_r34rm")
+target = NodePath("../Player")
+
+[node name="EnemyMouseSpawner" type="Node" parent="."]
+script = ExtResource("4_2wwxx")
+mouse_enemy_scene = ExtResource("1_sblpm")
+spawn_margin = 1
